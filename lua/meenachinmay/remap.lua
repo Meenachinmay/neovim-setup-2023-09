@@ -1,12 +1,21 @@
 vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-map('n', '<leader>h', '<C-w>h', {noremap = true, silent = false})
-map('n', '<leader>l', '<C-w>l', {noremap = true, silent = false})
-map('n', '<leader>j', '<C-w>j', {noremap = true, silent = false})
-map('n', '<leader>k', '<C-w>k', {noremap = true, silent = false})
-map('n', '<leader>w', ':w<cr>', {noremap = true, silent = false})
-map('n', '<leader>q', ':q<cr>', {noremap = true, silent = false})
-map('n', '<leader>wq', ':wq<cr>', {noremap = true, silent = false})
-map("n", "<leader>e", ":NERDTreeToggle<cr>", {noremap = true, silent = false})
+vim.keymap.set("n","<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>f", ':Format<cr>')
+vim.keymap.set("n", "<leader>F", ':FormatWrite<cr>')
+
+-- split window
+vim.keymap.set('n','ss', ':split<Return><C-w>w')
+vim.keymap.set('n','sv', ':vsplit<Return><C-w>w')
+
+-- Move window
+vim.keymap.set('n', 'sh', '<C-w>h')
+vim.keymap.set('n', 'sk', '<C-w>k')
+vim.keymap.set('n', 'sj', '<C-w>j')
+vim.keymap.set('n', 'sl', '<C-w>l')
+
+vim.keymap.set('n', '<leader>e', ':NERDTreeToggle<cr>')
+vim.keymap.set('n', '<leader>q', ':q<cr>')
+vim.keymap.set('n', '<leader>wq', ':wq<cr>')
+
