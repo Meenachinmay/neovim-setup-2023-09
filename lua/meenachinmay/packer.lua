@@ -24,19 +24,19 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
 
   use { 'neovim/nvim-lspconfig' }
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  --[[
-     [use ({
-     [        'nvimdev/lspsaga.nvim',
-     [        config = function()
-     [                require('lspsaga').setup({})
-     [        end,
-     [})
-     ]]
+  use 'nvim-lualine/lualine.nvim' -- Statusline
+  use 'nvim-lua/plenary.nvim' -- Common utilities
+  use 'onsails/lspkind-nvim' -- vscode-like pictograms
+  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
+  use 'hrsh7th/nvim-cmp' -- Completion
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+
+  use 'nvimdev/lspsaga.nvim' -- LSP UIs
+  use 'L3MON4D3/LuaSnip'
+
   use 'preservim/nerdcommenter'
   use 'm4xshen/autoclose.nvim'
   use ('prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' })
@@ -51,5 +51,9 @@ return require('packer').startup(function(use)
   })
   use("preservim/nerdtree") 
   use("nvim-tree/nvim-web-devicons")
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  }
 
 end)
